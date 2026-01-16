@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | BusinessMantra.co</title>
+    <meta name="description" content="Get in touch with BusinessMantra for expert consultancy and loan inquiries.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/components.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Business<span>Mantra</span></a>
+            <div class="mobile-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="contact.html" class="nav-link active">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="desktop-cta" style="display: none;">
+                <a href="contact.html" class="btn btn-primary">Get Consultation</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="hero" style="min-height: 350px; padding: 140px 0 60px;">
+        <div class="container text-center">
+            <h1>Get in Touch</h1>
+            <p style="max-width: 600px; margin: 0 auto; opacity: 0.9;">We are here to answer your questions and help you
+                find the right solutions.</p>
+        </div>
+    </section>
+
+    <!-- Contact Content -->
+    <section class="section">
+        <div class="container">
+            <div class="grid-3" style="grid-template-columns: 1fr 1.5fr;">
+                <!-- Contact Info -->
+                <div>
+                    <div class="card mb-lg">
+                        <h3 class="text-navy">Contact Information</h3>
+                        <p class="mb-lg">Reach out to us directly or visit our office.</p>
+
+                        <div style="margin-bottom: 1.5rem;">
+                            <h4 style="font-size: 1rem; color: var(--color-accent); margin-bottom: 0.5rem;">Address</h4>
+                            <p>123 Business Park, Suite 400<br>Finance City, FC 90210</p>
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem;">
+                            <h4 style="font-size: 1rem; color: var(--color-accent); margin-bottom: 0.5rem;">Phone</h4>
+                            <p>+1 (555) 123-4567</p>
+                            <p style="font-size: 0.9rem; color: #666;">Mon-Fri, 9am - 6pm EST</p>
+                        </div>
+
+                        <div>
+                            <h4 style="font-size: 1rem; color: var(--color-accent); margin-bottom: 0.5rem;">Email</h4>
+                            <p>info@businessmantra.co</p>
+                            <p>support@businessmantra.co</p>
+                        </div>
+                    </div>
+
+                    <!-- Map Placeholer -->
+                    <div
+                        style="background-color: #ddd; height: 250px; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center;">
+                        <span style="color: #666;"><i class="fas fa-map-marked-alt"></i> Map Integration</span>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="card">
+                    <h3 class="text-navy">Send us a Message</h3>
+                    <form action="#" method="POST"
+                        onsubmit="event.preventDefault(); alert('Thank you for your message! This is a demo form.');">
+                        <div class="grid-3" style="grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                            <div class="form-group" style="margin-bottom: 0;">
+                                <label for="name" class="form-label">Full Name</label>
+                                <input type="text" id="name" class="form-control" required>
+                            </div>
+                            <div class="form-group" style="margin-bottom: 0;">
+                                <label for="email" class="form-label">Email Address</label>
+                                <input type="email" id="email" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="grid-3" style="grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                            <div class="form-group" style="margin-bottom: 0;">
+                                <label for="phone" class="form-label">Phone Number</label>
+                                <input type="tel" id="phone" class="form-control">
+                            </div>
+                            <div class="form-group" style="margin-bottom: 0;">
+                                <label for="company" class="form-label">Company Name</label>
+                                <input type="text" id="company" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="interest" class="form-label">Interested In</label>
+                            <select id="interest" class="form-control">
+                                <option value="consultancy">Business Consultancy</option>
+                                <option value="loans">Business Loan</option>
+                                <option value="planning">Financial Planning</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="logo"
+                        style="color: white; font-size: 1.5rem; display: block; margin-bottom: 1rem;">Business<span>Mantra</span></a>
+                    <p style="opacity: 0.7;">Empowering businesses with strategic insights and financial strength since
+                        2010.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt" style="width: 20px;"></i> 123 Business Park, Finance City
+                        </li>
+                        <li><i class="fas fa-phone" style="width: 20px;"></i> +1 (555) 123-4567</li>
+                        <li><i class="fas fa-envelope" style="width: 20px;"></i> info@businessmantra.co</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 BusinessMantra.co. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+</body>
+
+</html>
