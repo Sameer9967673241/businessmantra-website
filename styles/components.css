@@ -170,6 +170,15 @@ textarea.form-control {
     /* Offset fixed header */
 }
 
+/* Background Pattern Section */
+#why-us {
+    background-color: #fcfcfc;
+    background-image: url('../assets/pattern-bg.png');
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: multiply;
+}
+
 /* Abstract Background Shapes */
 .hero::after {
     content: '';
