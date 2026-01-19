@@ -1,16 +1,22 @@
-/* Layout CSS */
+/* Layout CSS - Premium Edition */
 
-/* Header */
+/* Header & Navbar */
 .header {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
+    background: transparent;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
-    box-shadow: var(--shadow-sm);
     padding: var(--spacing-md) 0;
+    transition: var(--transition);
+}
+
+.header.scrolled {
+    background: rgba(10, 25, 47, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 10px 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .nav-container {
@@ -21,10 +27,11 @@
 
 .logo {
     font-family: var(--font-heading);
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: 700;
-    color: var(--color-primary);
+    color: var(--color-white);
     letter-spacing: 1px;
+    z-index: 1001;
 }
 
 .logo span {
@@ -34,24 +41,30 @@
 .nav-links {
     display: flex;
     gap: var(--spacing-lg);
+    align-items: center;
 }
 
 .nav-link {
     font-weight: 500;
     font-size: 0.95rem;
-    color: var(--color-text);
+    color: rgba(255, 255, 255, 0.85);
+    /* Slightly muted white */
     position: relative;
+    padding: 5px 0;
+    transition: color 0.3s ease;
 }
+
+/* Header is dark, so text is white. Exception handled in JS if non-hero pags */
 
 .nav-link:hover,
 .nav-link.active {
-    color: var(--color-primary);
+    color: var(--color-accent);
 }
 
 .nav-link::after {
     content: '';
     position: absolute;
-    bottom: -4px;
+    bottom: 0;
     left: 0;
     width: 0;
     height: 2px;
@@ -64,29 +77,47 @@
     width: 100%;
 }
 
-/* Footer */
+/* Footer - Dark & Luxurious */
 .footer {
-    background-color: var(--color-primary);
+    background-color: var(--color-primary-dark);
     color: var(--color-white);
-    padding: var(--spacing-xl) 0;
+    padding: var(--spacing-xl) 0 20px;
     margin-top: auto;
+    position: relative;
+}
+
+/* Top accent line on footer */
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-primary-dark) 0%, var(--color-accent) 50%, var(--color-primary-dark) 100%);
 }
 
 .footer-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: var(--spacing-lg);
-    margin-bottom: var(--spacing-lg);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
 }
 
 .footer-col h3 {
     color: var(--color-accent);
     margin-bottom: var(--spacing-md);
-    font-size: 1.25rem;
+    font-size: 1.4rem;
+    font-weight: 400;
 }
 
 .footer-links li {
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.7);
+    transition: var(--transition);
 }
 
 .footer-links a:hover {
@@ -95,40 +126,63 @@
 }
 
 .footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
     padding-top: var(--spacing-lg);
     text-align: center;
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.4);
 }
 
-/* Mobile Menu Toggle - Hidden by default on desktop */
+/* Mobile Menu Toggle */
 .mobile-toggle {
     display: none;
     font-size: 1.5rem;
     cursor: pointer;
+    color: var(--color-white);
+    z-index: 1001;
 }
 
 @media (max-width: 768px) {
     .nav-links {
         display: none;
-        /* Hide for now, will toggle with JS */
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: white;
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 75%;
+        max-width: 300px;
+        background: var(--color-primary-dark);
+        /* Dark slide-out menu */
         flex-direction: column;
-        padding: var(--spacing-lg);
-        box-shadow: var(--shadow-md);
-        text-align: center;
+        justify-content: center;
+        gap: 2rem;
+        box-shadow: -5px 0 20px rgba(0, 0, 0, 0.5);
+        padding: 2rem;
+        z-index: 1000;
     }
 
     .nav-links.active {
         display: flex;
+        animation: slideInRight 0.3s ease-out;
     }
 
     .mobile-toggle {
         display: block;
+    }
+
+    .desktop-cta {
+        display: none;
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
     }
 }

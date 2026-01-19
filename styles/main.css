@@ -1,14 +1,26 @@
 /* Main CSS - Variables & Reset */
 :root {
-  /* Colors */
-  --color-primary: #0a192f;   /* Deep Navy */
-  --color-accent: #c5a059;    /* Gold/Bronze */
-  --color-accent-light: #e6c88b;
-  --color-bg: #f8f9fa;        /* Off-white */
-  --color-text: #333333;
-  --color-text-light: #666666;
+  /* Colors - Premium Palette */
+  --color-primary-dark: #020c1b;
+  /* Almost Black Navy */
+  --color-primary: #0a192f;
+  /* Deep Rich Navy */
+  --color-primary-light: #112240;
+  /* Lighter Navy for cards */
+
+  --color-accent: #d4af37;
+  /* Metallic Gold */
+  --color-accent-light: #f3e5ab;
+  /* Champagne Gold */
+  --color-accent-dark: #aa8c2c;
+
+  --color-bg: #f8f9fa;
+  /* Clean Off-white */
+  --color-text: #2c3e50;
+  /* Dark Slate */
+  --color-text-light: #5a6a7e;
+  /* Muted Slate */
   --color-white: #ffffff;
-  --color-dark: #020c1b;
 
   /* Typography */
   --font-heading: 'Playfair Display', serif;
@@ -18,15 +30,22 @@
   --spacing-sm: 0.5rem;
   --spacing-md: 1rem;
   --spacing-lg: 2rem;
-  --spacing-xl: 4rem;
+  --spacing-xl: 5rem;
+  /* Increased for airy feel */
   --container-width: 1200px;
-  
+
   /* Effects */
-  --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-glow: 0 0 15px rgba(212, 175, 55, 0.3);
+  /* Gold Glow */
+
   --radius-sm: 4px;
-  --radius-md: 8px;
-  --transition: all 0.3s ease;
+  --radius-md: 12px;
+  --radius-lg: 24px;
+
+  --transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
 * {
@@ -42,7 +61,12 @@ body {
   line-height: 1.6;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-heading);
   color: var(--color-primary);
   line-height: 1.2;
@@ -74,5 +98,10 @@ img {
   padding: var(--spacing-xl) 0;
 }
 
-.text-gold { color: var(--color-accent); }
-.text-navy { color: var(--color-primary); }
+.text-gold {
+  color: var(--color-accent);
+}
+
+.text-navy {
+  color: var(--color-primary);
+}
