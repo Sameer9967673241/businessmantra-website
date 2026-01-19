@@ -179,6 +179,14 @@ textarea.form-control {
     background-blend-mode: multiply;
 }
 
+#services {
+    background-color: #f6f8fb;
+    background-image: url('../assets/geometric-bg.png');
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: overlay;
+}
+
 /* Abstract Background Shapes */
 .hero::after {
     content: '';
