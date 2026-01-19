@@ -103,6 +103,7 @@
     font-size: 3rem;
     background: -webkit-linear-gradient(45deg, var(--color-accent), var(--color-accent-dark));
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: var(--spacing-md);
     display: inline-block;
@@ -154,7 +155,6 @@ textarea.form-control {
 
 /* Hero Section - Immersive */
 .hero {
-    background: radial-gradient(circle at top right, #112240 0%, #020c1b 100%);
     color: var(--color-white);
     min-height: 85vh;
     /* Taller hero */
@@ -163,6 +163,10 @@ textarea.form-control {
     justify-content: center;
     position: relative;
     padding-top: 80px;
+    background: linear-gradient(rgba(2, 12, 27, 0.85), rgba(2, 12, 27, 0.7)), url('../assets/hero-bg.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     /* Offset fixed header */
 }
 
@@ -197,6 +201,7 @@ textarea.form-control {
     letter-spacing: -1px;
     background: linear-gradient(to right, #ffffff 0%, #e6c88b 100%);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
