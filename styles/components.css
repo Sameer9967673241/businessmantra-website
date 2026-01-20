@@ -156,17 +156,17 @@ textarea.form-control {
 /* Hero Section - Immersive */
 .hero {
     color: var(--color-white);
-    min-height: 85vh;
+    min-height: 100vh;
     /* Taller hero */
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     padding-top: 80px;
-    background: linear-gradient(rgba(2, 12, 27, 0.85), rgba(2, 12, 27, 0.7)), url('../assets/hero-bg.png');
+    background: linear-gradient(rgba(2, 12, 27, 0.7), rgba(2, 12, 27, 0.5)), url('../assets/burj-al-arab-morning.png');
     background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+    background-position: center bottom;
+    /* background-attachment: fixed; Removed to show more of the image */
     /* Offset fixed header */
 }
 
