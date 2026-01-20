@@ -230,6 +230,14 @@ textarea.form-control {
     line-height: 1.8;
 }
 
+/* CTA Buttons Container */
+.hero-cta {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
 /* Utilities */
 .text-center {
     text-align: center;
@@ -264,4 +272,25 @@ textarea.form-control {
     color: var(--color-text-light);
     max-width: 600px;
     margin: 0 auto;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1.1rem;
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .btn {
+        padding: 12px 24px;
+        font-size: 0.8rem;
+    }
+
+    .hero-cta {
+        gap: 1rem;
+    }
 }
