@@ -47,13 +47,94 @@
     </header>
 
     <!-- Hero Section -->
+    <!-- Sticky Sidebar -->
+    <div class="sticky-sidebar">
+        <a href="#" class="sidebar-icon" title="Call Us"><i class="fas fa-phone"></i></a>
+        <a href="#" class="sidebar-icon" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="#" class="sidebar-icon" title="Chat"><i class="fas fa-comments"></i></a>
+    </div>
+
+    <!-- Hero Section -->
     <section class="hero">
         <div class="container hero-content">
-            <h1>Thinking of Setting Up a Business in Dubai, UAE? or Middle East</h1>
-            <p>Expert Guidance. Transparent Process. Zero Hassle.</p>
-            <div class="hero-cta">
-                <a href="contact.html" class="btn btn-primary">Book Your Free Consultation</a>
-                <a href="#services" class="btn btn-outline" style="color: white; border-color: white;">Our Services</a>
+            <div class="hero-grid">
+                <!-- Left Column: Text & CTA -->
+                <div class="hero-text">
+                    <h1>Business Setup in Dubai</h1>
+
+                    <div class="hero-highlights">
+                        <p class="highlight-item">Starting from <span class="text-gold-bright">AED 13,600</span></p>
+                        <p class="highlight-item">Duration Minimum <span class="text-gold-bright">3 Working Days</span>
+                        </p>
+                    </div>
+
+                    <div class="hero-cta">
+                        <a href="#chat" class="btn btn-white">Chat With Us</a>
+                        <a href="#calculator" class="btn btn-red">COST CALCULATOR</a>
+                    </div>
+                </div>
+
+                <!-- Right Column: Form -->
+                <div class="hero-form-col">
+                    <div class="hero-form-card">
+                        <h3>Talk to our Business Setup Expert</h3>
+                        <form action="#" method="POST">
+                            <div class="form-group-sm">
+                                <input type="text" placeholder="Name *" class="form-control-sm" required>
+                            </div>
+                            <div class="form-group-sm">
+                                <input type="email" placeholder="Email Id *" class="form-control-sm" required>
+                            </div>
+                            <div class="form-group-sm">
+                                <div class="phone-input">
+                                    <span class="flag-icon">🇺🇸 ▼</span>
+                                    <input type="tel" placeholder="Mobile Number" class="form-control-sm">
+                                </div>
+                            </div>
+                            <div class="form-group-sm">
+                                <select class="form-control-sm">
+                                    <option value="" disabled selected>Business Activity *</option>
+                                    <option value="trading">Trading</option>
+                                    <option value="service">Service</option>
+                                    <option value="industrial">Industrial</option>
+                                </select>
+                            </div>
+                            <div class="form-group-sm">
+                                <label class="sm-label">Incorporation Location</label>
+                                <select class="form-control-sm">
+                                    <option value="dubai">Dubai</option>
+                                    <option value="abudhabi">Abu Dhabi</option>
+                                    <option value="sharjah">Sharjah</option>
+                                </select>
+                            </div>
+                            <div class="form-group-sm">
+                                <label class="sm-label">How soon are you planning to start?</label>
+                                <select class="form-control-sm">
+                                    <option value="immediately">Immediately</option>
+                                    <option value="1month">Within 1 Month</option>
+                                    <option value="3months">Within 3 Months</option>
+                                </select>
+                            </div>
+
+                            <div class="form-captcha">
+                                <div
+                                    style="border: 1px solid #ccc; padding: 10px; background: #f9f9f9; display: flex; align-items: center; justify-content: space-between; border-radius: 4px;">
+                                    <div style="display: flex; align-items: center; gap: 10px;">
+                                        <input type="checkbox" id="robot_check">
+                                        <label for="robot_check" style="font-size: 0.8rem; color: #555;">I'm not a
+                                            robot</label>
+                                    </div>
+                                    <div style="text-align: center; color: #555;">
+                                        <i class="fas fa-sync-alt"></i><br>
+                                        <span style="font-size: 0.6rem;">reCAPTCHA</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-submit-red">Submit</button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

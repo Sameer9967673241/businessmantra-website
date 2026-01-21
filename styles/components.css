@@ -6,12 +6,11 @@
     align-items: center;
     justify-content: center;
     padding: 16px 36px;
-    border-radius: 50px;
-    /* Pillow shape */
-    font-weight: 600;
-    text-transform: uppercase;
-    font-size: 0.85rem;
-    letter-spacing: 2px;
+    border-radius: 5px;
+    /* Squared with slight radius as per ref */
+    font-weight: 700;
+    text-transform: capitalize;
+    font-size: 1rem;
     cursor: pointer;
     transition: var(--transition);
     border: 1px solid transparent;
@@ -27,26 +26,56 @@
     border: none;
 }
 
+.btn-white {
+    background: #ffffff;
+    color: #8b0000;
+    /* Dark Red text */
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-white:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-red {
+    background: #8b0000;
+    /* Dark Red */
+    color: #ffffff;
+    border: 1px solid #a50000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.btn-red:hover {
+    background: #a50000;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+.btn-submit-red {
+    background: #8b0000;
+    color: white;
+    font-weight: 700;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background 0.3s;
+    width: auto;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.btn-submit-red:hover {
+    background: #a50000;
+}
+
+
 .btn-primary:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
-}
-
-.btn-primary::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, var(--color-accent-light) 0%, var(--color-accent) 100%);
-    z-index: -1;
-    opacity: 0;
-    transition: var(--transition);
-}
-
-.btn-primary:hover::after {
-    opacity: 1;
 }
 
 .btn-outline {
@@ -157,17 +186,16 @@ textarea.form-control {
 .hero {
     color: var(--color-white);
     min-height: 100vh;
-    /* Taller hero */
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    padding-top: 80px;
-    background: linear-gradient(rgba(2, 12, 27, 0.7), rgba(2, 12, 27, 0.5)), url('../assets/dubai-hero-bg.png');
+    padding-top: 100px;
+    /* More space for header */
+    padding-bottom: 50px;
+    background: linear-gradient(rgba(2, 12, 27, 0.6), rgba(2, 12, 27, 0.4)), url('../assets/dubai-hero-bg.png');
     background-size: cover;
     background-position: center bottom;
-    /* background-attachment: fixed; Removed to show more of the image */
-    /* Offset fixed header */
 }
 
 /* Background Pattern Section */
@@ -189,53 +217,178 @@ textarea.form-control {
 
 /* Abstract Background Shapes */
 .hero::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -20%;
-    width: 800px;
-    height: 800px;
-    background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
-    border-radius: 50%;
-    pointer-events: none;
+    /* Removed large overlay to keep background clean as per ref */
+    content: none;
 }
 
 .hero-content {
-    max-width: 900px;
+    max-width: var(--container-width);
     margin: 0 auto;
-    text-align: center;
-    z-index: 2;
     padding: 0 var(--spacing-md);
+    width: 100%;
 }
 
-.hero h1 {
-    font-size: 4.5rem;
-    /* Massive Heading */
+/* Hero Grid Layout */
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    /* Text wider than Form */
+    gap: 4rem;
+    align-items: center;
+}
+
+/* Left Column Styling */
+.hero-text h1 {
+    font-size: 3.5rem;
     font-weight: 700;
     color: var(--color-white);
-    margin-bottom: var(--spacing-md);
-    line-height: 1.1;
-    letter-spacing: -1px;
-    background: linear-gradient(to right, #ffffff 0%, #e6c88b 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    margin-bottom: 2rem;
+    line-height: 1.2;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    background: none;
+    /* Removed gradient text */
+    -webkit-text-fill-color: initial;
 }
 
-.hero p {
-    font-size: 1.4rem;
-    margin-bottom: var(--spacing-xl);
-    opacity: 0.8;
-    font-weight: 300;
-    line-height: 1.8;
+.hero-highlights {
+    margin-bottom: 2.5rem;
+}
+
+.highlight-item {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.text-gold-bright {
+    color: #ffd700;
+    /* Bright yellow/gold */
 }
 
 /* CTA Buttons Container */
 .hero-cta {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 1.5rem;
     flex-wrap: wrap;
+}
+
+/* Right Column: Form Styling */
+.hero-form-col {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.hero-form-card {
+    background: white;
+    padding: 24px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.hero-form-card h3 {
+    color: #8b0000;
+    /* Dark Red Heading */
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    text-align: left;
+}
+
+.form-group-sm {
+    margin-bottom: 15px;
+}
+
+.form-control-sm {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    color: #333;
+    background: white;
+}
+
+.form-control-sm:focus {
+    border-color: #8b0000;
+    outline: none;
+}
+
+.sm-label {
+    display: block;
+    font-size: 0.85rem;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.phone-input {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.flag-icon {
+    font-size: 1.2rem;
+    cursor: pointer;
+    background: #eee;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.form-captcha {
+    margin-bottom: 20px;
+}
+
+/* Sticky Sidebar */
+.sticky-sidebar {
+    position: fixed;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 9999;
+    background: white;
+    /* Or transparent depending on ref */
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 0 8px 8px 0;
+    overflow: hidden;
+}
+
+.sidebar-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    color: white;
+    font-size: 1.4rem;
+    transition: width 0.3s;
+}
+
+.sidebar-icon:nth-child(1) {
+    background-color: #0c1c44;
+}
+
+/* Navy phone */
+.sidebar-icon:nth-child(2) {
+    background-color: #25d366;
+}
+
+/* WhatsApp Green */
+.sidebar-icon:nth-child(3) {
+    background-color: #3b5998;
+}
+
+/* Chat Blue */
+
+.sidebar-icon:hover {
+    width: 60px;
 }
 
 /* Utilities */
@@ -275,22 +428,33 @@ textarea.form-control {
 }
 
 /* Mobile Responsive */
-@media (max-width: 768px) {
-    .hero h1 {
+@media (max-width: 900px) {
+    .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        text-align: center;
+    }
+
+    .hero-text {
+        order: 1;
+        /* Form first? Or Text first? Usually Text first on mobile */
+    }
+
+    .hero-form-col {
+        order: 2;
+        justify-content: center;
+    }
+
+    .hero-text h1 {
         font-size: 2.5rem;
     }
 
-    .hero p {
-        font-size: 1.1rem;
-        margin-bottom: var(--spacing-lg);
-    }
-
-    .btn {
-        padding: 12px 24px;
-        font-size: 0.8rem;
-    }
-
     .hero-cta {
-        gap: 1rem;
+        justify-content: center;
+    }
+
+    .sticky-sidebar {
+        display: none;
+        /* Hide on mobile usually */
     }
 }
