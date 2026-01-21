@@ -91,4 +91,59 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
         document.head.appendChild(style);
     }
+    // 4. Cost Calculator Modal Logic
+    const modal = document.getElementById('calculatorModal');
+    const openBtn = document.getElementById('openCalculator');
+    const closeBtn = document.querySelector('.close-modal');
+
+    // Inputs & Output
+    const inputs = ['calcType', 'calcVisas', 'calcOffice'].map(id => document.getElementById(id));
+    const totalEl = document.getElementById('totalCost');
+
+    if (modal && openBtn && closeBtn) {
+        // Open Modal
+        openBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            modal.classList.add('show');
+            // Calculate initial value
+            calculateCost();
+        });
+
+        // Close Modal
+        closeBtn.addEventListener('click', () => {
+            modal.classList.remove('show');
+        });
+
+        // Close on outside click
+        window.addEventListener('click', (e) => {
+            if (e.target == modal) {
+                modal.classList.remove('show');
+            }
+        });
+
+        // Calculation Logic
+        function calculateCost() {
+            const basePrice = parseInt(document.getElementById('calcType').value) || 0;
+            const visas = parseInt(document.getElementById('calcVisas').value) || 0;
+            const officePrice = parseInt(document.getElementById('calcOffice').value) || 0;
+
+            const visaCost = visas * 3500; // Base visa cost assumption
+            const total = basePrice + visaCost + officePrice;
+
+            // Format Currency
+            totalEl.innerText = 'AED ' + total.toLocaleString();
+
+            // Animate Price Change (Optional simple effect)
+            totalEl.style.transform = 'scale(1.1)';
+            setTimeout(() => totalEl.style.transform = 'scale(1)', 200);
+        }
+
+        // Add Listeners to all inputs
+        inputs.forEach(input => {
+            if (input) {
+                input.addEventListener('input', calculateCost);
+                input.addEventListener('change', calculateCost);
+            }
+        });
+    }
 });

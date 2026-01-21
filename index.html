@@ -69,8 +69,9 @@
                     </div>
 
                     <div class="hero-cta">
-                        <a href="#chat" class="btn btn-white">Chat With Us</a>
-                        <a href="#calculator" class="btn btn-red">COST CALCULATOR</a>
+                        <a href="https://wa.me/971555316099" target="_blank" class="btn btn-white"><i
+                                class="fab fa-whatsapp" style="margin-right: 8px;"></i> Chat With Us</a>
+                        <button id="openCalculator" class="btn btn-red">COST CALCULATOR</button>
                     </div>
                 </div>
 
@@ -243,6 +244,50 @@
             </div>
         </div>
     </footer>
+
+    <div id="calculatorModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 class="text-navy" style="text-align: center; margin-bottom: 20px;">Business Setup Cost Estimator</h2>
+            <div class="calculator-form">
+                <div class="form-group-sm">
+                    <label class="sm-label">Business Type</label>
+                    <select id="calcType" class="form-control-sm">
+                        <option value="13600">Trading License (AED 13,600)</option>
+                        <option value="15000">Service License (AED 15,000)</option>
+                        <option value="25000">Industrial License (AED 25,000)</option>
+                    </select>
+                </div>
+                <div class="form-group-sm">
+                    <label class="sm-label">Number of Visas</label>
+                    <input type="number" id="calcVisas" class="form-control-sm" min="0" value="0"
+                        placeholder="Cost per visa: AED 3,500">
+                </div>
+                <div class="form-group-sm">
+                    <label class="sm-label">Office Space</label>
+                    <select id="calcOffice" class="form-control-sm">
+                        <option value="0">Zero (Virtual Office)</option>
+                        <option value="5000">Flexi Desk (AED 5,000)</option>
+                        <option value="30000">Physical Office (AED 30,000)</option>
+                    </select>
+                </div>
+
+                <div class="calc-result"
+                    style="background: #f0f7ff; padding: 20px; border-radius: 8px; text-align: center; margin-top: 20px;">
+                    <p style="margin-bottom: 5px; color: #555;">Estimated Cost</p>
+                    <h3 id="totalCost" style="color: var(--color-primary); font-size: 2rem; margin: 0;">AED 13,600</h3>
+                </div>
+
+                <p style="font-size: 0.8rem; color: #888; text-align: center; margin-top: 15px;">*This is an approximate
+                    estimation. Official fees may vary.</p>
+
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="https://wa.me/971555316099?text=I'm%20interested%20in%20your%20cost%20estimate"
+                        class="btn btn-submit-red" style="width: 100%;">Get Official Quote</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="scripts/main.js"></script>
 </body>
