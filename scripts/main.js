@@ -97,15 +97,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeBtn = document.querySelector('.close-modal');
 
     // Inputs & Output
-    const inputs = ['calcType', 'calcVisas', 'calcOffice'].map(id => document.getElementById(id));
+    const calcType = document.getElementById('calcType');
+    const calcVisas = document.getElementById('calcVisas');
+    const calcOffice = document.getElementById('calcOffice');
     const totalEl = document.getElementById('totalCost');
 
-    if (modal && openBtn && closeBtn) {
+    if (modal && openBtn && closeBtn && calcType && calcVisas && calcOffice && totalEl) {
+        console.log("Calculator elements found, initializing...");
+
         // Open Modal
         openBtn.addEventListener('click', (e) => {
             e.preventDefault();
             modal.classList.add('show');
-            // Calculate initial value
             calculateCost();
         });
 
@@ -123,27 +126,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Calculation Logic
         function calculateCost() {
-            const basePrice = parseInt(document.getElementById('calcType').value) || 0;
-            const visas = parseInt(document.getElementById('calcVisas').value) || 0;
-            const officePrice = parseInt(document.getElementById('calcOffice').value) || 0;
+            const basePrice = parseInt(calcType.value) || 0;
+            const visaCount = parseInt(calcVisas.value) || 0;
+            const officePrice = parseInt(calcOffice.value) || 0;
 
-            const visaCost = visas * 3500; // Base visa cost assumption
+            const visaCost = visaCount * 3500;
             const total = basePrice + visaCost + officePrice;
 
             // Format Currency
             totalEl.innerText = 'AED ' + total.toLocaleString();
 
-            // Animate Price Change (Optional simple effect)
-            totalEl.style.transform = 'scale(1.1)';
-            setTimeout(() => totalEl.style.transform = 'scale(1)', 200);
+            console.log(`Calculated: Base ${basePrice} + Visas ${visaCost} + Office ${officePrice} = ${total}`);
         }
 
-        // Add Listeners to all inputs
-        inputs.forEach(input => {
-            if (input) {
-                input.addEventListener('input', calculateCost);
-                input.addEventListener('change', calculateCost);
-            }
+        // Add Listeners
+        [calcType, calcVisas, calcOffice].forEach(input => {
+            input.addEventListener('input', calculateCost);
+            input.addEventListener('change', calculateCost);
         });
+    } else {
+        console.error("Calculator elements missing:", { modal, openBtn, closeBtn, calcType, calcVisas, calcOffice, totalEl });
     }
 });
