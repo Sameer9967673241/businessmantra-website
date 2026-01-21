@@ -91,60 +91,76 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
         document.head.appendChild(style);
     }
-    // 4. Cost Calculator Modal Logic
-    const modal = document.getElementById('calculatorModal');
-    const openBtn = document.getElementById('openCalculator');
-    const closeBtn = document.querySelector('.close-modal');
 
-    // Inputs & Output
-    const calcType = document.getElementById('calcType');
-    const calcVisas = document.getElementById('calcVisas');
-    const calcOffice = document.getElementById('calcOffice');
-    const totalEl = document.getElementById('totalCost');
-
-    if (modal && openBtn && closeBtn && calcType && calcVisas && calcOffice && totalEl) {
-        console.log("Calculator elements found, initializing...");
-
-        // Open Modal
-        openBtn.addEventListener('click', (e) => {
+    // 4. Cost Calculator Modal Logic (Event Delegation Version)
+    // Attach listener to document to catch clicks regardless of element timing
+    document.addEventListener('click', (e) => {
+        // Handle Open Button
+        if (e.target && (e.target.id === 'openCalculator' || e.target.closest('#openCalculator'))) {
             e.preventDefault();
-            modal.classList.add('show');
-            calculateCost();
-        });
-
-        // Close Modal
-        closeBtn.addEventListener('click', () => {
-            modal.classList.remove('show');
-        });
-
-        // Close on outside click
-        window.addEventListener('click', (e) => {
-            if (e.target == modal) {
-                modal.classList.remove('show');
+            const modal = document.getElementById('calculatorModal');
+            if (modal) {
+                modal.classList.add('show');
+                if (typeof window.calculateCost === 'function') window.calculateCost();
+            } else {
+                console.error("Calculator modal not found in DOM");
             }
-        });
-
-        // Calculation Logic
-        function calculateCost() {
-            const basePrice = parseInt(calcType.value) || 0;
-            const visaCount = parseInt(calcVisas.value) || 0;
-            const officePrice = parseInt(calcOffice.value) || 0;
-
-            const visaCost = visaCount * 3500;
-            const total = basePrice + visaCost + officePrice;
-
-            // Format Currency
-            totalEl.innerText = 'AED ' + total.toLocaleString();
-
-            console.log(`Calculated: Base ${basePrice} + Visas ${visaCost} + Office ${officePrice} = ${total}`);
         }
 
-        // Add Listeners
-        [calcType, calcVisas, calcOffice].forEach(input => {
-            input.addEventListener('input', calculateCost);
-            input.addEventListener('change', calculateCost);
+        // Handle Close Button
+        if (e.target && e.target.classList.contains('close-modal')) {
+            const modal = document.getElementById('calculatorModal');
+            if (modal) modal.classList.remove('show');
+        }
+
+        // Handle Outside Click
+        if (e.target && e.target.classList.contains('modal')) {
+            e.target.classList.remove('show');
+        }
+    });
+
+    // Make calculation logic accessible globally
+    window.calculateCost = function () {
+        const calcType = document.getElementById('calcType');
+        const calcVisas = document.getElementById('calcVisas');
+        const calcOffice = document.getElementById('calcOffice');
+        const totalEl = document.getElementById('totalCost');
+
+        if (!calcType || !calcVisas || !calcOffice || !totalEl) return;
+
+        const basePrice = parseInt(calcType.value) || 0;
+        const visaCount = parseInt(calcVisas.value) || 0;
+        const officePrice = parseInt(calcOffice.value) || 0;
+
+        const visaCost = visaCount * 3500;
+        const total = basePrice + visaCost + officePrice;
+
+        totalEl.innerText = 'AED ' + total.toLocaleString();
+    };
+
+    // Attach listeners
+    // We try to attach immediately, and also set an interval to check for the elements
+    // This is because sometimes the browser might take a moment to render content pushed near end of body
+    function attachCalcListeners() {
+        const inputs = ['calcType', 'calcVisas', 'calcOffice'];
+        let attachedCount = 0;
+        inputs.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) {
+                // Remove before add to prevent duplicates (although addEventListener handles unique)
+                el.removeEventListener('input', window.calculateCost);
+                el.removeEventListener('change', window.calculateCost);
+
+                el.addEventListener('input', window.calculateCost);
+                el.addEventListener('change', window.calculateCost);
+                attachedCount++;
+            }
         });
-    } else {
-        console.error("Calculator elements missing:", { modal, openBtn, closeBtn, calcType, calcVisas, calcOffice, totalEl });
+        return attachedCount === inputs.length;
+    }
+
+    // Attempt verify attach
+    if (!attachCalcListeners()) {
+        setTimeout(attachCalcListeners, 1000); // Retry
     }
 });
