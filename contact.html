@@ -57,7 +57,7 @@
     <!-- Contact Content -->
     <section class="section">
         <div class="container">
-            <div class="grid-3" style="grid-template-columns: 1fr 1.5fr;">
+            <div class="contact-grid">
                 <!-- Contact Info -->
                 <div>
                     <div class="card mb-lg">
@@ -108,7 +108,85 @@
                         <div class="grid-3" style="grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
                             <div class="form-group" style="margin-bottom: 0;">
                                 <label for="phone" class="form-label">Phone Number</label>
-                                <input type="tel" id="phone" class="form-control">
+                                <div class="phone-input-wrapper">
+                                    <div class="country-code-selector">
+                                        <button type="button" class="country-code-btn" id="countryCodeBtn">
+                                            <span class="flag-emoji">🇦🇪</span>
+                                            <span class="country-code">+971</span>
+                                            <i class="fas fa-chevron-down dropdown-icon"></i>
+                                        </button>
+                                        <div class="country-dropdown" id="countryDropdown">
+                                            <div class="country-search">
+                                                <input type="text" placeholder="Search country..." class="search-input"
+                                                    id="countrySearch">
+                                            </div>
+                                            <div class="country-list">
+                                                <div class="country-option" data-code="+971" data-flag="🇦🇪"
+                                                    data-name="UAE">
+                                                    <span class="flag-emoji">🇦🇪</span>
+                                                    <span class="country-name">UAE</span>
+                                                    <span class="country-code">+971</span>
+                                                </div>
+                                                <div class="country-option" data-code="+91" data-flag="🇮🇳"
+                                                    data-name="India">
+                                                    <span class="flag-emoji">🇮🇳</span>
+                                                    <span class="country-name">India</span>
+                                                    <span class="country-code">+91</span>
+                                                </div>
+                                                <div class="country-option" data-code="+1" data-flag="🇺🇸"
+                                                    data-name="USA">
+                                                    <span class="flag-emoji">🇺🇸</span>
+                                                    <span class="country-name">USA</span>
+                                                    <span class="country-code">+1</span>
+                                                </div>
+                                                <div class="country-option" data-code="+44" data-flag="🇬🇧"
+                                                    data-name="UK">
+                                                    <span class="flag-emoji">🇬🇧</span>
+                                                    <span class="country-name">UK</span>
+                                                    <span class="country-code">+44</span>
+                                                </div>
+                                                <div class="country-option" data-code="+61" data-flag="🇦🇺"
+                                                    data-name="Australia">
+                                                    <span class="flag-emoji">🇦🇺</span>
+                                                    <span class="country-name">Australia</span>
+                                                    <span class="country-code">+61</span>
+                                                </div>
+                                                <div class="country-option" data-code="+86" data-flag="🇨🇳"
+                                                    data-name="China">
+                                                    <span class="flag-emoji">🇨🇳</span>
+                                                    <span class="country-name">China</span>
+                                                    <span class="country-code">+86</span>
+                                                </div>
+                                                <div class="country-option" data-code="+81" data-flag="🇯🇵"
+                                                    data-name="Japan">
+                                                    <span class="flag-emoji">🇯🇵</span>
+                                                    <span class="country-name">Japan</span>
+                                                    <span class="country-code">+81</span>
+                                                </div>
+                                                <div class="country-option" data-code="+49" data-flag="🇩🇪"
+                                                    data-name="Germany">
+                                                    <span class="flag-emoji">🇩🇪</span>
+                                                    <span class="country-name">Germany</span>
+                                                    <span class="country-code">+49</span>
+                                                </div>
+                                                <div class="country-option" data-code="+33" data-flag="🇫🇷"
+                                                    data-name="France">
+                                                    <span class="flag-emoji">🇫🇷</span>
+                                                    <span class="country-name">France</span>
+                                                    <span class="country-code">+33</span>
+                                                </div>
+                                                <div class="country-option" data-code="+971" data-flag="🇸🇦"
+                                                    data-name="Saudi Arabia">
+                                                    <span class="flag-emoji">🇸🇦</span>
+                                                    <span class="country-name">Saudi Arabia</span>
+                                                    <span class="country-code">+966</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <input type="tel" id="phone" class="form-control phone-number-field"
+                                        placeholder="Enter phone number">
+                                </div>
                             </div>
                             <div class="form-group" style="margin-bottom: 0;">
                                 <label for="company" class="form-label">Company Name</label>

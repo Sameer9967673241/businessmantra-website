@@ -91,4 +91,90 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
         document.head.appendChild(style);
     }
+
+    // 4. Country Code Selector Functionality
+    const countryCodeBtn = document.getElementById('countryCodeBtn');
+    const countryDropdown = document.getElementById('countryDropdown');
+    const countrySearch = document.getElementById('countrySearch');
+    const countryOptions = document.querySelectorAll('.country-option');
+
+    if (countryCodeBtn && countryDropdown) {
+        // Toggle dropdown
+        countryCodeBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            countryCodeBtn.classList.toggle('active');
+            countryDropdown.classList.toggle('active');
+
+            // Focus search input when dropdown opens
+            if (countryDropdown.classList.contains('active')) {
+                setTimeout(() => countrySearch.focus(), 100);
+            }
+        });
+
+        // Select country
+        countryOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                const flag = option.dataset.flag;
+                const code = option.dataset.code;
+
+                // Update button
+                countryCodeBtn.querySelector('.flag-emoji').textContent = flag;
+                countryCodeBtn.querySelector('.country-code').textContent = code;
+
+                // Remove previous selection
+                countryOptions.forEach(opt => opt.classList.remove('selected'));
+                // Add selection to clicked option
+                option.classList.add('selected');
+
+                // Close dropdown
+                countryCodeBtn.classList.remove('active');
+                countryDropdown.classList.remove('active');
+
+                // Clear search
+                if (countrySearch) {
+                    countrySearch.value = '';
+                    countryOptions.forEach(opt => opt.style.display = 'flex');
+                }
+            });
+        });
+
+        // Search functionality
+        if (countrySearch) {
+            countrySearch.addEventListener('input', (e) => {
+                const searchTerm = e.target.value.toLowerCase();
+
+                countryOptions.forEach(option => {
+                    const countryName = option.dataset.name.toLowerCase();
+                    const countryCode = option.dataset.code.toLowerCase();
+
+                    if (countryName.includes(searchTerm) || countryCode.includes(searchTerm)) {
+                        option.style.display = 'flex';
+                    } else {
+                        option.style.display = 'none';
+                    }
+                });
+            });
+
+            // Prevent dropdown from closing when clicking search input
+            countrySearch.addEventListener('click', (e) => {
+                e.stopPropagation();
+            });
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!countryCodeBtn.contains(e.target) && !countryDropdown.contains(e.target)) {
+                countryCodeBtn.classList.remove('active');
+                countryDropdown.classList.remove('active');
+            }
+        });
+
+        // Close dropdown on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && countryDropdown.classList.contains('active')) {
+                countryCodeBtn.classList.remove('active');
+                countryDropdown.classList.remove('active');
+            }
+        });
+    }
 });
