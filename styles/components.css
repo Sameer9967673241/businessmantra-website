@@ -786,10 +786,10 @@ textarea.form-control {
 
     .flip-card,
     .promo-card {
-        height: 240px;
-        /* Reduced by 20% from 300px */
-        flex: 0 0 70%;
-        /* Reduced width to show more context */
+        height: 215px;
+        /* Reduced by another 10% */
+        flex: 0 0 65%;
+        /* Adjusted width */
         scroll-snap-align: center;
         margin-right: 0;
     }
