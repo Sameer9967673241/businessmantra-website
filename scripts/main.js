@@ -187,14 +187,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Process Data
     const processSteps = [
-        "Step 1: Reach out to our consultants to get the process started.",
-        "Step 2: Finalize jurisdiction and business structure based on the goals.",
-        "Step 3: Select a business name by adhering to the naming guidelines.",
-        "Step 4: Gather the required documents.",
-        "Step 5: Apply for business incorporation.",
-        "Step 6: Obtain certificate of incorporation and relevant business license.",
-        "Step 7: Open a bank account to carry out financial transactions.",
-        "Step 8: Start business operations."
+        "Step 1: Consultation – Connect with our experts to initiate your business journey.",
+        "Step 2: Strategic Planning – Define your ideal jurisdiction and corporate framework.",
+        "Step 3: Brand Identity – Choose a compliant trade name that resonates with your brand.",
+        "Step 4: Documentation – Compile and verify all necessary legal and personal paperwork.",
+        "Step 5: Registration – Submit your official application for company incorporation.",
+        "Step 6: Licensing – Secure your incorporation certificate and trade permits.",
+        "Step 7: Banking Setup – Establish your corporate account for seamless financial operations.",
+        "Step 8: Operational Launch – Begin your commercial activities and scale your business."
     ];
 
     if (stepNodes.length > 0 && processTitle && timelineContainer && detailBox) {

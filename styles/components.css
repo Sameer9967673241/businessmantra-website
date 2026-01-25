@@ -1099,21 +1099,21 @@ textarea.form-control {
 
 /* Hover State */
 .step-node:hover {
-    border-color: #b8860b;
+    border-color: #C5A028;
     /* Dark Yellow */
-    color: #b8860b;
+    color: #C5A028;
     transform: translateY(-3px);
-    box-shadow: 0 4px 10px rgba(184, 134, 11, 0.2);
+    box-shadow: 0 4px 10px rgba(197, 160, 40, 0.2);
 }
 
 /* Active State */
 .step-node.active {
-    background: #b8860b;
+    background: #C5A028;
     /* Dark Yellow */
-    border-color: #b8860b;
+    border-color: #C5A028;
     color: white;
     transform: scale(1.15);
-    box-shadow: 0 4px 15px rgba(184, 134, 11, 0.4);
+    box-shadow: 0 4px 15px rgba(197, 160, 40, 0.4);
 }
 
 /* Process Details Box */
@@ -1134,7 +1134,7 @@ textarea.form-control {
 
 .detail-box {
     background: white;
-    border: 1px solid #b8860b;
+    border: 1px solid #C5A028;
     /* Dark Yellow Border */
     border-radius: 15px;
     padding: 30px;
@@ -1158,7 +1158,7 @@ textarea.form-control {
     top: -42px;
     /* Connect from nodes row */
     height: 42px;
-    border-left: 2px dotted #b8860b;
+    border-left: 2px dotted #C5A028;
     z-index: 0;
     transition: left 0.4s cubic-bezier(0.25, 1, 0.5, 1);
     left: 6.25%;
@@ -1169,11 +1169,11 @@ textarea.form-control {
 @media (max-width: 768px) {
     .timeline-nodes {
         flex-wrap: wrap;
-        /* Or scroll? User said 8 steps horizontal is standard but hard on mobile. */
-        overflow-x: auto;
+        /* Wrap into rows */
+        justify-content: center;
+        /* Center them */
+        gap: 15px;
         padding-bottom: 20px;
-        justify-content: flex-start;
-        gap: 20px;
     }
 
     .timeline-line {
