@@ -172,17 +172,17 @@
             </div>
 
             <div class="why-us-grid">
-                <!-- Dubai Mainland -->
+                <!-- UAE Mainland (Renamed from Dubai) -->
                 <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="assets/card-dubai.png" alt="Dubai Mainland">
+                            <img src="assets/card-dubai.png" alt="UAE Mainland">
                             <div class="card-title-overlay">
-                                <h3>Dubai Mainland</h3>
+                                <h3>UAE Mainland</h3>
                             </div>
                         </div>
                         <div class="flip-card-back">
-                            <h3>Dubai Mainland</h3>
+                            <h3>UAE Mainland</h3>
                             <p>100% foreign ownership.<br>Trade anywhere in UAE & Internationally.<br>No currency
                                 restrictions.</p>
                             <a href="contact.html" class="btn-card-back">Get Started</a>
@@ -202,23 +202,6 @@
                         <div class="flip-card-back">
                             <h3>UAE Free Zone</h3>
                             <p>100% Tax Exemption.<br>Full repatriation of capital.<br>Quick & easy setup process.</p>
-                            <a href="contact.html" class="btn-card-back">Get Started</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Abu Dhabi Mainland -->
-                <div class="flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <img src="assets/card-abudhabi.png" alt="Abu Dhabi Mainland">
-                            <div class="card-title-overlay">
-                                <h3>Abu Dhabi Mainland</h3>
-                            </div>
-                        </div>
-                        <div class="flip-card-back">
-                            <h3>Abu Dhabi Mainland</h3>
-                            <p>2-Year License Sustainability.<br>Low cost setup.<br>Ideal for government contracts.</p>
                             <a href="contact.html" class="btn-card-back">Get Started</a>
                         </div>
                     </div>
@@ -265,6 +248,40 @@
                     <a href="services.html" class="btn-text"
                         style="color: var(--color-primary); font-weight: 600; margin-top: 1rem; display: inline-block;">Learn
                         More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Timeline -->
+    <section class="section" id="process-timeline" style="background-color: #fcfcfc;">
+        <div class="container">
+            <div class="section-header text-center mb-lg">
+                <h2 style="font-size: 2.2rem; color: var(--color-primary);">Let's look at the process:</h2>
+            </div>
+
+            <div class="timeline-container">
+                <div class="timeline-line"></div>
+                <div class="timeline-nodes">
+                    <!-- Steps will be generated or static? Plan said clean numbers 1-8 -->
+                    <div class="step-node active" data-step="1">1</div>
+                    <div class="step-node" data-step="2">2</div>
+                    <div class="step-node" data-step="3">3</div>
+                    <div class="step-node" data-step="4">4</div>
+                    <div class="step-node" data-step="5">5</div>
+                    <div class="step-node" data-step="6">6</div>
+                    <div class="step-node" data-step="7">7</div>
+                    <div class="step-node" data-step="8">8</div>
+                </div>
+
+                <div class="process-details">
+                    <div class="detail-connector"></div>
+                    <div class="detail-box">
+                        <div class="detail-content">
+                            <h3 id="processTitle">Step 1: Reach out to our consultants to get the process started.</h3>
+                            <!-- Description could go here if more detail is needed -->
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -317,6 +334,38 @@
     </footer>
 
 
+
+    <!-- Chat Widget -->
+    <div class="chat-widget" id="chatWidget" style="display: none;"> <!-- Initially hidden -->
+        <div class="chat-header">
+            <div class="agent-profile">
+                <div class="avatar-wrapper">
+                    <img src="assets/agent-sarah.png" alt="Sarah">
+                    <span class="status-dot"></span>
+                </div>
+                <div class="agent-info">
+                    <h4>Sarah</h4>
+                    <p>Product Expert</p>
+                </div>
+            </div>
+            <button class="close-chat" id="closeChatBtn"><i class="fas fa-minus"></i></button>
+        </div>
+        <div class="chat-body">
+            <div class="chat-message agent">
+                <p>Hi there! 👋 How can I help you today?</p>
+                <span class="time">Just now</span>
+            </div>
+        </div>
+        <div class="chat-footer">
+            <a href="https://wa.me/971555316099" target="_blank" class="btn-chat-action">Let's chat</a>
+        </div>
+    </div>
+
+    <!-- Chat Pill -->
+    <div class="chat-pill" id="chatPill">
+        <i class="fas fa-comment-dots"></i>
+        <span>Chat now</span>
+    </div>
 
     <script src="scripts/main.js"></script>
 </body>

@@ -177,4 +177,147 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // 6. Process Timeline Interactive
+    const stepNodes = document.querySelectorAll('.step-node');
+    const processTitle = document.getElementById('processTitle');
+    const detailConnector = document.querySelector('.detail-connector');
+    const detailBox = document.querySelector('.detail-box');
+    const timelineContainer = document.querySelector('.timeline-container');
+
+    // Process Data
+    const processSteps = [
+        "Step 1: Reach out to our consultants to get the process started.",
+        "Step 2: Finalize jurisdiction and business structure based on the goals.",
+        "Step 3: Select a business name by adhering to the naming guidelines.",
+        "Step 4: Gather the required documents.",
+        "Step 5: Apply for business incorporation.",
+        "Step 6: Obtain certificate of incorporation and relevant business license.",
+        "Step 7: Open a bank account to carry out financial transactions.",
+        "Step 8: Start business operations."
+    ];
+
+    if (stepNodes.length > 0 && processTitle && timelineContainer && detailBox) {
+
+        let activeIndex = 0;
+
+        const updatePositions = (index) => {
+            const node = stepNodes[index];
+
+            // Get container dimensions
+            const containerRect = timelineContainer.getBoundingClientRect();
+            const nodeRect = node.getBoundingClientRect();
+
+            // Calculate center of the node relative to container
+            const nodeCenterRelative = nodeRect.left - containerRect.left + (nodeRect.width / 2);
+
+            // 1. Move Connector to exact center
+            if (detailConnector) {
+                detailConnector.style.left = `${nodeCenterRelative}px`;
+            }
+
+            // 2. Move Box to align center with node (Clamped)
+            const boxWidth = detailBox.offsetWidth;
+            const containerWidth = containerRect.width;
+
+            // Center of the container (where the box is naturally positioned by margin: 0 auto)
+            const containerCenter = containerWidth / 2;
+
+            // We want the Box Center to be at Node Center
+            // But clamped so edges don't overflow container (with 15px safety margin)
+            const marginSafety = 15;
+            const minCenter = (boxWidth / 2) + marginSafety;
+            const maxCenter = containerWidth - (boxWidth / 2) - marginSafety;
+
+            let targetCenter = nodeCenterRelative;
+            targetCenter = Math.max(minCenter, Math.min(maxCenter, targetCenter));
+
+            // Calculate the transform needed from the default centered position
+            const translateX = targetCenter - containerCenter;
+
+            // Store targetX for animation
+            detailBox.dataset.translateX = translateX;
+
+            // Apply immediately if not animating (initial load)
+            if (!detailBox.classList.contains('animating')) {
+                detailBox.style.transform = `translate(${translateX}px, 0)`;
+            }
+        };
+
+        stepNodes.forEach((node, index) => {
+            node.addEventListener('click', () => {
+                activeIndex = index;
+
+                // Update Active State
+                stepNodes.forEach(n => n.classList.remove('active'));
+                node.classList.add('active');
+
+                // Prepare Animation
+                detailBox.classList.add('animating');
+
+                // Calculate new X position first
+                updatePositions(index);
+                const targetX = detailBox.dataset.translateX || 0;
+
+                // Start: Fade Out & Drop Down slightly
+                detailBox.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
+                detailBox.style.opacity = '0';
+                detailBox.style.transform = `translate(${targetX}px, 10px)`;
+
+                setTimeout(() => {
+                    // Update Content
+                    processTitle.textContent = processSteps[index];
+
+                    // Fade In & Move Up
+                    detailBox.style.opacity = '1';
+                    detailBox.style.transform = `translate(${targetX}px, 0)`;
+
+                    setTimeout(() => {
+                        detailBox.classList.remove('animating');
+                    }, 300);
+                }, 200);
+            });
+        });
+
+        // Initial Positioning on load and resize
+        window.addEventListener('load', () => updatePositions(0));
+        window.addEventListener('resize', () => {
+            // Reset transition during resize to avoid laggy feeling
+            detailBox.style.transition = 'none';
+            updatePositions(activeIndex);
+            const targetX = detailBox.dataset.translateX || 0;
+            detailBox.style.transform = `translate(${targetX}px, 0)`;
+        });
+        // Run once immediately in case load already fired
+        setTimeout(() => updatePositions(0), 100);
+    }
+
+    // 5. Chat Widget Toggle
+    const chatWidget = document.getElementById('chatWidget');
+    const chatPill = document.getElementById('chatPill');
+    const closeChatBtn = document.getElementById('closeChatBtn');
+
+    if (chatWidget && chatPill && closeChatBtn) {
+
+        // Open Chat
+        chatPill.addEventListener('click', () => {
+            chatPill.classList.add('hidden');
+            chatWidget.style.display = 'flex'; // Ensure it's in the DOM flow
+            // Small delay to allow display flex to apply before opacity transition
+            setTimeout(() => {
+                chatWidget.classList.add('active');
+            }, 10);
+        });
+
+        // Close/Minimize Chat
+        closeChatBtn.addEventListener('click', () => {
+            chatWidget.classList.remove('active');
+
+            // Wait for transition to finish before hiding pill
+            setTimeout(() => {
+                chatWidget.style.display = 'none';
+                chatPill.classList.remove('hidden');
+            }, 400); // Matches CSS transition duration
+        });
+    }
 });

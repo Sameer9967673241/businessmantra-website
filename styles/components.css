@@ -311,11 +311,11 @@ textarea.form-control {
 
 .hero-form-card {
     background: white;
-    padding: 20px;
-    border-radius: 10px;
+    padding: 30px;
+    border-radius: 15px;
     width: 100%;
-    max-width: 360px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    max-width: 420px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
 }
 
 .hero-form-card h3 {
@@ -1050,4 +1050,363 @@ textarea.form-control {
 
 .promo-btn:hover {
     background: #a00000;
+}
+
+/* Process Timeline Styling */
+.timeline-container {
+    position: relative;
+    padding: 20px 0;
+    margin-top: 30px;
+}
+
+.timeline-nodes {
+    display: flex;
+    justify-content: space-between;
+    /* Equal spacing */
+    position: relative;
+    z-index: 2;
+    margin-bottom: 40px;
+}
+
+/* Horizontal Line */
+.timeline-line {
+    position: absolute;
+    top: 45px;
+    /* Half of node height + vertical padding/top offset */
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #e0e0e0;
+    z-index: 1;
+}
+
+.step-node {
+    width: 50px;
+    height: 50px;
+    background: white;
+    border: 2px solid #e0e0e0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: #666;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+/* Hover State */
+.step-node:hover {
+    border-color: #b8860b;
+    /* Dark Yellow */
+    color: #b8860b;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(184, 134, 11, 0.2);
+}
+
+/* Active State */
+.step-node.active {
+    background: #b8860b;
+    /* Dark Yellow */
+    border-color: #b8860b;
+    color: white;
+    transform: scale(1.15);
+    box-shadow: 0 4px 15px rgba(184, 134, 11, 0.4);
+}
+
+/* Process Details Box */
+.process-details {
+    position: relative;
+    margin-top: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInDetails 0.5s ease forwards;
+}
+
+@keyframes fadeInDetails {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.detail-box {
+    background: white;
+    border: 1px solid #b8860b;
+    /* Dark Yellow Border */
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.detail-content h3 {
+    color: var(--color-primary);
+    font-size: 1.3rem;
+    margin: 0;
+    font-weight: 600;
+}
+
+/* Connector Line (Vertical Dotted) */
+.detail-connector {
+    position: absolute;
+    top: -42px;
+    /* Connect from nodes row */
+    height: 42px;
+    border-left: 2px dotted #b8860b;
+    z-index: 0;
+    transition: left 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    left: 6.25%;
+    /* Initial Position (100 / 8 / 2) roughly */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .timeline-nodes {
+        flex-wrap: wrap;
+        /* Or scroll? User said 8 steps horizontal is standard but hard on mobile. */
+        overflow-x: auto;
+        padding-bottom: 20px;
+        justify-content: flex-start;
+        gap: 20px;
+    }
+
+    .timeline-line {
+        display: none;
+        /* Hide line on mobile scrolling */
+    }
+
+    .step-node {
+        flex-shrink: 0;
+    }
+
+    .detail-connector {
+        display: none;
+        /* Hide connector on mobile as alignment is tricky */
+    }
+}
+
+/* Chat Widget Styling */
+.chat-widget {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 350px;
+    background: white;
+    border-radius: 30px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    overflow: hidden;
+    font-family: var(--font-body);
+    display: flex;
+    /* Changed from fixed to flex for structural reasons, but "display: none" inline overrides this initially */
+    flex-direction: column;
+
+    /* Animation State Props */
+    transform-origin: bottom right;
+    transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    opacity: 0;
+    transform: scale(0.5);
+    pointer-events: none;
+}
+
+.chat-widget.active {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: all;
+}
+
+/* Chat Pill Styling */
+.chat-pill {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #800000;
+    /* Dark Red */
+    color: white;
+    padding: 12px 24px;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(128, 0, 0, 0.3);
+    cursor: pointer;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+.chat-pill:hover {
+    background-color: #a00000;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(128, 0, 0, 0.4);
+}
+
+.chat-pill i {
+    font-size: 1.2rem;
+}
+
+.chat-pill span {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+/* Hide pill when widget is active */
+.chat-pill.hidden {
+    opacity: 0;
+    transform: scale(0.8);
+    pointer-events: none;
+}
+
+.chat-header {
+    padding: 20px 25px;
+    background: white;
+    border-bottom: 1px solid #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.agent-profile {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.avatar-wrapper {
+    position: relative;
+    width: 50px;
+    height: 50px;
+}
+
+.avatar-wrapper img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.status-dot {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    width: 12px;
+    height: 12px;
+    background-color: #25d366;
+    /* Online Green */
+    border: 2px solid white;
+    border-radius: 50%;
+}
+
+.agent-info h4 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+.agent-info p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.close-chat {
+    background: none;
+    border: none;
+    color: #999;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-chat:hover {
+    color: var(--color-primary);
+}
+
+.chat-body {
+    padding: 25px;
+    background-color: #f8f9fa;
+    /* Light Gray Background */
+    min-height: 200px;
+}
+
+.chat-message.agent {
+    position: relative;
+    max-width: 85%;
+}
+
+.chat-message.agent p {
+    background: white;
+    padding: 15px 20px;
+    border-radius: 0 20px 20px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    color: var(--color-text);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 5px;
+    position: relative;
+}
+
+/* Speech bubble tail */
+.chat-message.agent p::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -10px;
+    width: 0;
+    height: 0;
+    border-top: 15px solid white;
+    border-left: 15px solid transparent;
+}
+
+.chat-message .time {
+    display: block;
+    font-size: 0.75rem;
+    color: #999;
+    margin-left: 5px;
+}
+
+.chat-footer {
+    padding: 20px;
+    background: white;
+    border-top: 1px solid #f0f0f0;
+}
+
+.btn-chat-action {
+    display: block;
+    width: 100%;
+    background-color: #800000;
+    /* Dark Red */
+    color: white;
+    text-align: center;
+    padding: 16px;
+    border-radius: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.2s;
+    font-size: 1rem;
+}
+
+.btn-chat-action:hover {
+    background-color: #a00000;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(128, 0, 0, 0.2);
+}
+
+/* Responsive adjustments for chat widget */
+@media (max-width: 480px) {
+    .chat-widget {
+        width: 90%;
+        right: 5%;
+        left: 5%;
+        bottom: 20px;
+    }
 }
