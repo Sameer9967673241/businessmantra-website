@@ -1033,9 +1033,9 @@ textarea.form-control {
 }
 
 .promo-btn {
-    background: #800000;
-    /* Dark Red */
-    color: white;
+    background: #FFD700;
+    /* Yellow */
+    color: var(--color-primary);
     padding: 12px 24px;
     border-radius: 4px;
     font-weight: 700;
@@ -1049,7 +1049,7 @@ textarea.form-control {
 }
 
 .promo-btn:hover {
-    background: #a00000;
+    background: #ffe033;
 }
 
 /* Process Timeline Styling */
@@ -1226,12 +1226,12 @@ textarea.form-control {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    background-color: #800000;
-    /* Dark Red */
-    color: white;
+    background-color: #FFD700;
+    /* Yellow */
+    color: var(--color-primary);
     padding: 12px 24px;
     border-radius: 50px;
-    box-shadow: 0 4px 15px rgba(128, 0, 0, 0.3);
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
     cursor: pointer;
     z-index: 9999;
     display: flex;
@@ -1242,9 +1242,9 @@ textarea.form-control {
 }
 
 .chat-pill:hover {
-    background-color: #a00000;
+    background-color: #ffe033;
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(128, 0, 0, 0.4);
+    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5);
 }
 
 .chat-pill i {
