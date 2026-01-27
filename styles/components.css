@@ -1383,9 +1383,9 @@ textarea.form-control {
 .btn-chat-action {
     display: block;
     width: 100%;
-    background-color: #800000;
-    /* Dark Red */
-    color: white;
+    background-color: #FFD700;
+    /* Yellow */
+    color: var(--color-primary);
     text-align: center;
     padding: 16px;
     border-radius: 12px;
@@ -1396,9 +1396,9 @@ textarea.form-control {
 }
 
 .btn-chat-action:hover {
-    background-color: #a00000;
+    background-color: #ffe033;
     transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(128, 0, 0, 0.2);
+    box-shadow: 0 4px 10px rgba(255, 215, 0, 0.3);
 }
 
 /* Responsive adjustments for chat widget */
