@@ -883,6 +883,8 @@ textarea.form-control {
     text-align: center;
     transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    /* Safari Fix */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     border-radius: 15px;
 }
@@ -906,6 +908,8 @@ textarea.form-control {
 .flip-card-front {
     background-color: white;
     color: white;
+    z-index: 2;
+    /* Ensure front is default on top */
 }
 
 .flip-card-front img {
@@ -949,8 +953,10 @@ textarea.form-control {
 
 /* Back Side */
 .flip-card-back {
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
-    color: white;
+    background: white;
+    /* Default white as requested */
+    color: #FFD700;
+    /* Yellow text */
     transform: rotateY(180deg);
     display: flex;
     flex-direction: column;
@@ -958,32 +964,70 @@ textarea.form-control {
     align-items: center;
     padding: 2rem;
     border: 1px solid var(--color-accent);
+    z-index: 1;
+}
+
+/* Fix for Reverse Text showing through: Force Back z-index on hover */
+.flip-card:hover .flip-card-back {
+    z-index: 5;
 }
 
 .flip-card-back h3 {
-    color: var(--color-accent);
-    margin-bottom: 1rem;
+    color: #FFD700;
+    margin-bottom: 5px;
     font-size: 1.4rem;
 }
 
-.flip-card-back p {
-    font-size: 0.95rem;
-    line-height: 1.6;
+.flip-card-back h4 {
+    color: #FFD700;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    font-weight: 500;
+    margin-top: 0;
+}
+
+.flip-card-back ul {
+    text-align: left;
+    padding-left: 0;
+    list-style: none;
     margin-bottom: 1.5rem;
+    color: #FFD700;
+    font-size: 1rem;
+    font-weight: 600;
+    width: 100%;
+}
+
+.flip-card-back li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.flip-card-back i {
+    color: #bf1e2e;
+    /* Red Check */
+    margin-right: 10px;
+    font-size: 1.2rem;
+    background: transparent;
+    border-radius: 50%;
 }
 
 .btn-card-back {
-    border: 1px solid white;
+    background: #FFD700;
+    color: var(--color-primary);
+    border: none;
     padding: 10px 24px;
     border-radius: 30px;
-    color: white;
     font-size: 0.9rem;
+    font-weight: 700;
+    text-decoration: none;
     transition: all 0.3s;
 }
 
 .btn-card-back:hover {
     background: white;
     color: var(--color-primary);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 /* Promo Card Styling (Red Card - No Flip by default, or special flip) */
