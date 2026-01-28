@@ -700,6 +700,24 @@ textarea.form-control {
     gap: var(--spacing-lg);
 }
 
+.grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-lg);
+}
+
+@media (max-width: 1024px) {
+    .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .grid-4 {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* Contact Page Grid - Keep form on right */
 .contact-grid {
     display: grid;
