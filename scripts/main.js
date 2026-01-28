@@ -320,4 +320,51 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 400); // Matches CSS transition duration
         });
     }
+
+    // 7. Generic Modal Logic
+    const openModalBtns = document.querySelectorAll('.open-modal-btn');
+    const closeModalBtns = document.querySelectorAll('.close-modal');
+    const modals = document.querySelectorAll('.modal');
+
+    if (openModalBtns.length > 0) {
+        openModalBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const modalId = btn.getAttribute('data-modal');
+                const modal = document.getElementById(modalId);
+                if (modal) {
+                    modal.classList.add('show');
+                    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+                }
+            });
+        });
+
+        closeModalBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const modal = btn.closest('.modal');
+                modal.classList.remove('show');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Close when clicking outside content
+        window.addEventListener('click', (e) => {
+            if (e.target.classList.contains('modal')) {
+                e.target.classList.remove('show');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Close on Escape key
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                modals.forEach(modal => {
+                    if (modal.classList.contains('show')) {
+                        modal.classList.remove('show');
+                        document.body.style.overflow = '';
+                    }
+                });
+            }
+        });
+    }
 });
