@@ -802,12 +802,21 @@ textarea.form-control {
         /* Reset grid */
     }
 
-    .flip-card,
-    .promo-card {
+    .flip-card {
         height: 215px;
         /* Reduced by another 10% */
         flex: 0 0 65%;
         /* Adjusted width */
+        scroll-snap-align: center;
+        margin-right: 0;
+    }
+
+    .promo-card {
+        height: auto;
+        min-height: 450px;
+        /* Ensure it's tall enough */
+        flex: 0 0 85%;
+        /* Slightly wider to fit content */
         scroll-snap-align: center;
         margin-right: 0;
     }
@@ -1051,12 +1060,43 @@ textarea.form-control {
 /* Promo Card Styling (Red Card - No Flip by default, or special flip) */
 .promo-card {
     position: relative;
-    height: 450px;
+    height: auto;
+    min-height: 450px;
     border-radius: 15px;
-    overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     cursor: pointer;
     transition: transform 0.3s;
+}
+
+/* Service Link Styling */
+.service-link {
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+    position: relative;
+    padding-bottom: 2px;
+}
+
+.service-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--color-accent);
+    transition: width 0.3s ease;
+}
+
+.service-link:hover {
+    color: var(--color-accent);
+    transform: translateY(-2px);
+    text-decoration: none;
+}
+
+.service-link:hover::after {
+    width: 100%;
 }
 
 .promo-card img {
@@ -1471,4 +1511,20 @@ textarea.form-control {
         left: 5%;
         bottom: 20px;
     }
+}
+
+/* Service Link Hover Effects */
+.service-link {
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+    position: relative;
+}
+
+.service-link:hover {
+    transform: translateY(-2px);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    color: var(--color-accent);
 }
