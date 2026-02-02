@@ -186,3 +186,130 @@
         opacity: 1;
     }
 }
+
+/* Top Bar */
+.top-bar {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 8px 0;
+    display: none;
+}
+
+@media (min-width: 992px) {
+    .top-bar {
+        display: block;
+    }
+}
+
+.top-bar-content {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+}
+
+.top-bar-link {
+    color: white;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.3s;
+    font-weight: 500;
+}
+
+.top-bar-link:hover {
+    color: var(--color-accent);
+}
+
+.icon-whatsapp {
+    color: #25D366;
+    font-size: 1.2rem;
+}
+
+.icon-telegram {
+    color: #0088cc;
+    font-size: 1.2rem;
+}
+
+/* Dropdown Menu */
+/* Ensure all nav items (li) are consistent */
+.nav-links li {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    position: relative;
+}
+
+.dropdown {
+    /* Inherits from .nav-links li */
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    min-width: 220px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    padding: 10px 0;
+    display: none !important;
+    /* Force hide initially */
+    z-index: 1100;
+    border-top: 3px solid var(--color-accent);
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block !important;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.dropdown-menu li {
+    display: block;
+    margin-bottom: 0;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px 20px;
+    color: var(--color-primary);
+    /* Navy text */
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background 0.2s, color 0.2s;
+}
+
+.dropdown-menu a:hover {
+    background: #f9f9f9;
+    color: var(--color-accent);
+    padding-left: 25px;
+    /* Slight nudge */
+}
+
+.dropdown-menu a::after {
+    display: none;
+    /* Remove underline from default nav links */
+}
+
+/* Caret Icon */
+.nav-link i {
+    font-size: 0.75rem;
+    margin-left: 4px;
+    transition: transform 0.3s;
+}
+
+.dropdown:hover .nav-link i {
+    transform: rotate(180deg);
+}

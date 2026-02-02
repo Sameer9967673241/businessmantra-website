@@ -20,13 +20,27 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/components.css?v=12">
+    <link rel="stylesheet" href="styles/layout.css?v=100">
 </head>
 
 <body>
     <!-- Header -->
     <header class="header">
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <div class="container top-bar-content">
+                <a href="https://wa.me/971555316099" target="_blank" class="top-bar-link">
+                    <i class="fab fa-whatsapp icon-whatsapp"></i>
+                </a>
+                <a href="#" class="top-bar-link">
+                    <i class="fab fa-telegram-plane icon-telegram"></i>
+                </a>
+                <i class="fas fa-phone-alt icon-phone"></i> +971 4 871 4159
+                </a>
+            </div>
+        </div>
+
         <div class="container nav-container">
             <a href="index.html" class="logo">Business <span>Mantra</span></a>
             <div class="mobile-toggle">
@@ -34,24 +48,54 @@
             </div>
             <nav>
                 <ul class="nav-links">
-                    <li><a href="index.html" class="nav-link active">Home</a></li>
-                    <li><a href="about.html" class="nav-link">About</a></li>
-                    <li><a href="services.html" class="nav-link">Services</a></li>
-                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="nav-link">Business Setup <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="services.html#mainland">UAE Mainland</a></li>
+                            <li><a href="services.html#freezone">UAE Free Zone</a></li>
+                            <li><a href="services.html#offshore">Offshore</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="services.html" class="nav-link">Services <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="services.html#consultancy">Strategic Consultancy</a></li>
+                            <li><a href="services.html#financing">Business Financing</a></li>
+                            <li><a href="services.html#insurance-services">Insurance</a></li>
+                            <li><a href="index.html#visa-services">Visa & PRO Services</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="about.html" class="nav-link">About Us <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="about.html">Our Story</a></li>
+                            <li><a href="about.html">Leadership</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#" class="nav-link">Pricing</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="nav-link">Resources <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Guides</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">FAQ</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contact.html" class="nav-link">Contact Us</a></li>
                 </ul>
             </nav>
-            <div class="desktop-cta" style="display: none;"> <!-- Hidden on simple layout, can add logic later -->
-                <a href="contact.html" class="btn btn-primary">Get Consultation</a>
-            </div>
+            <!-- CTA Removed as per request (Avoid Cost Calculator) -->
         </div>
     </header>
 
     <!-- Hero Section -->
     <!-- Sticky Sidebar -->
     <div class="sticky-sidebar">
-        <a href="#" class="sidebar-icon" title="Call Us"><i class="fas fa-phone"></i></a>
-        <a href="#" class="sidebar-icon" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-        <a href="#" class="sidebar-icon" title="Chat"><i class="fas fa-comments"></i></a>
+        <a href="tel:+971555316099" class="sidebar-icon" title="Call Us"><i class="fas fa-phone"></i></a>
+        <a href="https://wa.me/971555316099" target="_blank" class="sidebar-icon" title="WhatsApp"><i
+                class="fab fa-whatsapp"></i></a>
+        <a href="#" class="sidebar-icon" title="Chat"
+            onclick="document.getElementById('chatPill').click(); return false;"><i class="fas fa-comments"></i></a>
     </div>
 
     <!-- Hero Section -->
@@ -240,6 +284,12 @@
                         style="color: var(--color-accent); margin-bottom: 1rem; font-size: 2rem; text-align: center; font-family: 'Playfair Display', serif;">
                         Other Services</h3>
                     <ul style="list-style: none; padding: 0; margin-bottom: 1rem; text-align: left;">
+                        <li
+                            style="margin-bottom: 8px; font-size: 1rem; font-weight: 600; display: flex; align-items: center;">
+                            <i class="fas fa-check-circle"
+                                style="color: var(--color-accent); margin-right: 12px; font-size: 1rem;"></i>
+                            <a href="#visa-services" class="service-link">Visa & PRO Services</a>
+                        </li>
                         <li
                             style="margin-bottom: 8px; font-size: 1rem; font-weight: 600; display: flex; align-items: center;">
                             <i class="fas fa-check-circle"
@@ -686,8 +736,9 @@
                     <ul class="footer-links">
                         <li><i class="fas fa-map-marker-alt" style="width: 20px;"></i> West Burry Tower - 3rd - opposite
                             to Opal Tower - Business Bay - Dubai (P.O. Box: 231381)</li>
-                        <li><i class="fas fa-phone" style="width: 20px;"></i> 043943751</li>
                         <li><i class="fas fa-phone" style="width: 20px;"></i> +971 55 531 6099</li>
+                        <li><i class="fas fa-phone" style="width: 20px;"></i> +971 50 533 9364</li>
+                        <li><i class="fas fa-phone" style="width: 20px;"></i> +971 58 568 7707</li>
                         <li><i class="fas fa-envelope" style="width: 20px;"></i> Mantra.services@gmail.com</li>
                     </ul>
                 </div>
