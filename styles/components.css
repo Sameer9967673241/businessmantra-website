@@ -626,6 +626,12 @@ textarea.form-control {
     width: 60px;
 }
 
+@media (max-width: 768px) {
+    .sticky-sidebar {
+        top: 65%;
+    }
+}
+
 /* Modal Styling */
 .modal {
     display: none;

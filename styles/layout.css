@@ -240,9 +240,7 @@
     position: relative;
 }
 
-.dropdown {
-    /* Inherits from .nav-links li */
-}
+
 
 .dropdown-menu {
     position: absolute;
