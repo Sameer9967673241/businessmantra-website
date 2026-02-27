@@ -106,7 +106,8 @@
                     </div>
 
                     <div class="hero-cta">
-                        <a href="https://wa.me/971555316099" target="_blank" class="btn btn-yellow"><i
+                        <a href="https://wa.me/971555316099" target="_blank" class="btn btn-yellow"
+                            style="padding: 12px 28px; font-size: 0.95rem; border-radius: 50px;"><i
                                 class="fab fa-whatsapp" style="margin-right: 8px;"></i> Contact Us</a>
                     </div>
                 </div>
@@ -123,8 +124,9 @@
                                 <input type="email" placeholder="Email Id *" class="form-control-sm" required>
                             </div>
                             <div class="form-group-sm">
-                                <div class="phone-input">
-                                    <select id="countryCode" class="country-select">
+                                <div class="phone-input" style="display: flex; gap: 10px;">
+                                    <select id="countryCode" class="form-control-sm"
+                                        style="flex: 0 0 35%; padding-left: 5px; padding-right: 0;">
                                         <option value="+971" selected>🇦🇪 +971</option>
                                         <option value="+1">🇺🇸 +1</option>
                                         <option value="+44">🇬🇧 +44</option>
@@ -143,7 +145,7 @@
                                         <option value="+65">🇸🇬 +65</option>
                                     </select>
                                     <input type="tel" placeholder="Mobile Number"
-                                        class="form-control-sm phone-number-input">
+                                        class="form-control-sm phone-number-input" style="flex: 1;">
                                 </div>
                             </div>
                             <div class="form-group-sm">
@@ -172,21 +174,22 @@
                             </div>
 
                             <div class="form-captcha">
-                                <div
-                                    style="border: 1px solid #ccc; padding: 10px; background: #f9f9f9; display: flex; align-items: center; justify-content: space-between; border-radius: 4px;">
+                                <div class="form-control-sm"
+                                    style="padding: 10px; display: flex; align-items: center; justify-content: space-between;">
                                     <div style="display: flex; align-items: center; gap: 10px;">
                                         <input type="checkbox" id="robot_check">
-                                        <label for="robot_check" style="font-size: 0.8rem; color: #555;">I'm not a
+                                        <label for="robot_check" style="font-size: 0.8rem; color: white;">I'm not a
                                             robot</label>
                                     </div>
-                                    <div style="text-align: center; color: #555;">
+                                    <div style="text-align: center; color: white;">
                                         <i class="fas fa-sync-alt"></i><br>
                                         <span style="font-size: 0.6rem;">reCAPTCHA</span>
                                     </div>
                                 </div>
                             </div>
 
-                            <button type="submit" class="btn btn-submit-red">Submit</button>
+                            <button type="submit" class="btn btn-yellow"
+                                style="width: 60%; display: block; margin: 10px auto 0; border-radius: 8px; padding: 12px 0; font-size: 1rem; box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);">Submit</button>
                         </form>
                     </div>
                 </div>
@@ -272,7 +275,7 @@
                 <!-- Promo Card -->
                 <!-- Promo Card -->
                 <div class="promo-card"
-                    style="padding: 1.5rem; background: var(--color-primary); color: white; display: flex; flex-direction: column; justify-content: flex-start; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); height: 450px; overflow: hidden;">
+                    style="padding: 1.5rem; color: white; display: flex; flex-direction: column; justify-content: flex-start; border-radius: 12px; height: 450px; overflow: hidden; background-color: #001f5b; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 10px 30px rgba(0,0,0,0.25);">
                     <h3
                         style="color: var(--color-accent); margin-bottom: 1rem; font-size: 2rem; text-align: center; font-family: 'Playfair Display', serif;">
                         Other Services</h3>
@@ -326,7 +329,8 @@
     </section>
 
     <!-- Visa Services Section -->
-    <section class="section" id="visa-services" style="background-color: #f9f9f9;">
+    <section class="section" id="visa-services" style="background: linear-gradient(135deg, #b8c8d8 0%, #a8bccf 100%);">
+
         <div class="container">
             <div class="section-header text-center mb-lg">
                 <h2>Visa & PRO Services</h2>
@@ -625,7 +629,8 @@
     </div>
 
     <!-- Services Preview -->
-    <section class="section" id="services">
+    <section class="section" id="services" style="background: linear-gradient(135deg, #b1bfcf 0%, #9bafc4 100%);">
+
         <div class="container">
             <div class="section-header text-center mb-lg">
                 <h2>Our Expertise</h2>
@@ -691,7 +696,9 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="section" style="background-color: var(--color-primary); color: white; text-align: center;">
+    <section class="section glass-cta"
+        style="background-color: var(--color-primary); color: white; text-align: center;">
+
         <div class="container">
             <h2 style="color: white; margin-bottom: 1rem;">Ready to Transform Your Business?</h2>
             <p style="margin-bottom: 2rem; opacity: 0.9;">Book a free initial consultation with our experts today.</p>

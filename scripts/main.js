@@ -62,13 +62,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }, observerOptions);
 
         // Elements to animate
-        const animatedElements = document.querySelectorAll('.card, .hero h1, .hero p, .section-header, .footer-col');
+        const animatedElements = document.querySelectorAll('.card, .promo-card, .hero-form-card, .glass-highlight, .hero h1, .hero p, .section-header, .footer-col');
 
         // Add initial styles and observe
         animatedElements.forEach((el, index) => {
             el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            el.style.transform = 'translateY(15px)';
+            el.style.transition = 'opacity 0.4s ease-in-out, transform 0.4s ease-in-out';
 
             // Stagger delay for grids
             if (el.classList.contains('card')) {
